@@ -1,0 +1,7 @@
+## Interface: 40200
+## Title: tabard
+## Notes: Automatically equips a tabard when you enter an instance.
+## Author: burial
+## Version: 1
+
+main.lua
