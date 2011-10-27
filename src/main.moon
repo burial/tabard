@@ -4,8 +4,8 @@ mod = CreateFrame('frame', 'tabard', UIParent)
 mod\SetScript('OnEvent', (event, ...) => self[event](self, ...))
 mod\RegisterEvent('ADDON_LOADED')
 
-UnequipTabard = ->
-  PickupInventoryItem(19) -- tabard slot
+UnequipInventorySlot = (slot) ->
+  PickupInventoryItem(slot)
   PutItemInBackpack!
   true
 
@@ -21,5 +21,5 @@ mod.PLAYER_ENTERING_WORLD = =>
   if instanceType == 'party'
     EquipItemByName(tabard)
   else
-    UnequipTabard!
+    UnequipInventorySlot(19) -- tabard slot
   true

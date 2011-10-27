@@ -4,9 +4,9 @@ mod:SetScript('OnEvent', function(self, event, ...)
   return self[event](self, ...)
 end)
 mod:RegisterEvent('ADDON_LOADED')
-local UnequipTabard
-UnequipTabard = function()
-  PickupInventoryItem(19)
+local UnequipInventorySlot
+UnequipInventorySlot = function(slot)
+  PickupInventoryItem(slot)
   PutItemInBackpack()
   return true
 end
@@ -23,7 +23,7 @@ mod.PLAYER_ENTERING_WORLD = function(self)
   if instanceType == 'party' then
     EquipItemByName(tabard)
   else
-    UnequipTabard()
+    UnequipInventorySlot(19)
   end
   return true
 end
